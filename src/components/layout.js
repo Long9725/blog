@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import ProfileBox from "./profile_box"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -30,13 +31,14 @@ const Layout = ({ children }) => {
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          padding: `0 1.0875rem 1.45rem`
         }}
       >
+        <ProfileBox />
         <main>{children}</main>
         <footer
           style={{
-            marginTop: `2rem`,
+            marginTop: `2rem`
           }}
         >
           © {new Date().getFullYear()}, Built with
@@ -49,7 +51,7 @@ const Layout = ({ children }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

@@ -12,12 +12,12 @@ const IndexPage = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
+      src="../images/profile.png"
+      width={200}
       quality={95}
       formats={["AUTO", "WEBP", "AVIF"]}
       alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
+      style={{ marginBottom: `1.45rem`, borderRadius: "100%" }}
     />
     <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
