@@ -15,7 +15,16 @@ const ProfileBox = () => (
     />
     <div className={styles.item}>
       <h1>장성호</h1>
-      <h4>개발자를 꿈꾸는 학생입니다.</h4>
+      <h4>
+        개발자를 꿈꾸는 학생입니다 😄
+        <br />
+        이것저것 가리지 않고 도전하는 중입니다 🔥
+        <br />
+        <br />
+        I'm a student who dreams of becoming a developer 😄
+        <br />
+        I'm trying regardless now 🔥
+      </h4>
       <div className={styles.item}>
         <a href="https://instagram.com/sh_z_1119">
           <StaticImage
@@ -27,6 +36,18 @@ const ProfileBox = () => (
             style={{ margin: `0.3rem` }}
           />
           sh_z_1119
+        </a>
+        <br />
+        <a href="https://instagram.com/work_window_shz">
+          <StaticImage
+            src="../images/icons/icon-instagram.png"
+            width={20}
+            height={20}
+            quality={95}
+            alt="Instagram icon"
+            style={{ margin: `0.3rem` }}
+          />
+          work_window_shz
         </a>
         <br />
         <a href="mailto://develop9725@gmail.com">

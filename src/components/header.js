@@ -6,14 +6,14 @@ const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      marginBottom: `1.45rem`
     }}
   >
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        //maxWidth: 960,
+        padding: `1.45rem 1.0875rem`
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -21,10 +21,20 @@ const Header = ({ siteTitle }) => (
           to="/"
           style={{
             color: `white`,
-            textDecoration: `none`,
+            textDecoration: `none`
           }}
         >
           {siteTitle}
+        </Link>
+        <Link
+          to="/"
+          style={{
+            color: `white`,
+            textDecoration: `none`,
+            float: "right"
+          }}
+        >
+          Home
         </Link>
       </h1>
     </div>
@@ -32,11 +42,11 @@ const Header = ({ siteTitle }) => (
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: ``
 }
 
 export default Header
