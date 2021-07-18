@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Tags from "./tags.js"
 import ProfileBox from "./profile.box"
 import "./layout.css"
 
@@ -35,6 +36,7 @@ const Layout = ({ children }) => {
         }}
       >
         <ProfileBox />
+        <Tags />
         <main>{children}</main>
         <footer
           style={{
@@ -43,7 +45,7 @@ const Layout = ({ children }) => {
         >
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.github.com/Long9725">Long9725</a>
+          <a href="https://www.github.com/Long9725">Long9725.</a>
         </footer>
       </div>
     </>
