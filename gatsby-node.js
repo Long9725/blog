@@ -57,7 +57,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: blogPostTemplate
+      component: blogPostTemplate,
+      context: {
+        slug: node.fields.slug
+      }
     })
   })
   // Extract tag data from query

@@ -30,11 +30,11 @@ module.exports = {
       }
     },
     `gatsby-plugin-gatsby-cloud`,
-    "gatsby-transformer-remark",
+    `gatsby-transformer-remark`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "posts",
+        name: `posts`,
         path: `${__dirname}/src/posts`
       }
     }

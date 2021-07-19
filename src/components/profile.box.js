@@ -1,6 +1,6 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import * as styles from "./profile.box.module.css"
+import * as styles from "./css/profile.box.module.css"
 
 const ProfileBox = () => (
   <div className={styles.container}>
