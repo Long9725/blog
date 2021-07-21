@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: red;
+  margin: 10px;
+  padding: 10px;
+}
+.item:nth-child(1) {
+  background-color: blue;
+  height: content;
+  width: content;
+  margin: 10px;
+}
+.item:nth-child(2) {
+  background-color: green;
+  height: content;
+  width: content;
+  justify-self: center;
+  align-self: center;
+  margin: 0px 10px 10px;
+  padding: 10px;
+}
+.item:nth-child(n + 3) {
+  background-color: yellow;
+}
+.post {
+  background-color: white;
+  height: 100px;
+  width: content;
+  margin: 100px;
+  border-radius: 10%;
+}
+.thumbnail {
+  overflow: hidden;
+  border-radius: 10%;
+}
+.thumbnail-text {
+  color: black;
+}
