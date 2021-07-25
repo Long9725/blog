@@ -1,23 +1,29 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-export default function Blog({ path, data }) {
-  console.log(data)
-  const blog = data.markdownRemark
-
+const Blog = ({
+  data: {
+    markdownRemark: { frontmatter, html }
+  }
+}) => {
+  const image = frontmatter.featuredImage.childImageSharp.gatsbyImageData
   return (
     <Layout>
       <div>
         <div>Hello blog!</div>
         <div>
-          <h1>{blog.frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: blog.html }} />
+          <h1>{frontmatter.title}</h1>
+          <GatsbyImage image={image} alt={frontmatter.title} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>
     </Layout>
   )
 }
+
+export default Blog
 
 export const query = graphql`
   query($slug: String!) {
@@ -25,6 +31,14 @@ export const query = graphql`
       html
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(width: 200)
+            # fluid(maxWidth: 800) {
+            #   ...GatsbyImageSharpFluid
+            # }
+          }
+        }
       }
     }
   }

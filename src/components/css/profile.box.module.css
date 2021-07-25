@@ -9,23 +9,17 @@ a {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  background-color: red;
-  width: 400px;
+  width: content;
   margin: 10px;
-  padding: 10px;
 }
 .item:nth-child(1) {
-  background-color: blue;
   margin: 10px;
   border-radius: 100%;
 }
 .item:nth-child(2) {
-  background-color: green;
   height: content;
   width: content;
-  margin: 0px 10px 10px;
+  border-top: 1px solid grey;
+  margin: 10px;
   padding: 10px;
-}
-.item:nth-child(n + 3) {
-  background-color: yellow;
 }

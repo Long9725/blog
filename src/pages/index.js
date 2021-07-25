@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
-import { BgImage } from "gbimage-bridge"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -24,7 +23,7 @@ export const query = graphql`
             tags
             featuredImage {
               childImageSharp {
-                gatsbyImageData(width: 800)
+                gatsbyImageData(width: 150)
               }
             }
           }
@@ -41,20 +40,20 @@ export const query = graphql`
     }
   }
 `
-// function splitTag(Tags) {
-//   var arr_split_tag
-//   var temp
-//   if (Tags.length === 1) return Tags
-//   else {
-//     Tags.forEach(e => {
-//       temp = "#" + e + " "
-//       arr_split_tag.push(temp)
-//       console.log(arr_split_tag)
-//     })
-//   }
-//   return arr_split_tag
-// }
-const IndexPage = ({ data }) => {
+function splitTag(Tags) {
+  var arr_split_tag = []
+  var temp = ""
+
+  Tags.forEach(e => {
+    temp = "#" + e + " "
+    arr_split_tag.push(temp)
+    console.log(arr_split_tag)
+  })
+
+  return arr_split_tag
+}
+
+function IndexPage({ data }) {
   const blog = data.allMarkdownRemark
   return (
     <Layout>
@@ -64,26 +63,29 @@ const IndexPage = ({ data }) => {
           <Tags />
         </div>
         <div className={styles.item}>
-          <h4>{blog.totalCount} blogs</h4>
           {blog.edges.map(({ node }) => {
             const image =
               node.frontmatter.featuredImage.childImageSharp.gatsbyImageData
             return (
-              <div key={node.id} className={styles.post}>
-                <BgImage image={image} className={styles.thumbnail}>
+              <Link to={node.fields.slug}>
+                <div key={node.id} className={styles.post}>
+                  <GatsbyImage
+                    image={image}
+                    alt=""
+                    className={styles.thumbnail}
+                  />
                   <div className={styles.thumbnailText}>
-                    <h3>
-                      <Link to={node.fields.slug}>
-                        {node.frontmatter.title}
-                      </Link>
-                    </h3>
+                    <h3>{node.frontmatter.title}</h3>
                     <p>{node.frontmatter.subtitle}</p>
                     <p>
-                      {node.frontmatter.date} {node.frontmatter.tags}
+                      {splitTag(node.frontmatter.tags)}
+                      <span style={{ float: "right" }}>
+                        {node.frontmatter.date}
+                      </span>
                     </p>
                   </div>
-                </BgImage>
-              </div>
+                </div>
+              </Link>
             )
           })}
         </div>
