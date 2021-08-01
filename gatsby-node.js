@@ -5,8 +5,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const relativeFilePath = createFilePath({
       node,
-      getNode,
-      basePath: `blog`
+      getNode
+      // basePath: `blog`
     })
     createNodeField({
       node,
@@ -25,7 +25,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const tagTemplate = path.resolve("src/templates/tags.js")
   const result = await graphql(`
     {
-      postsRemark: allMarkdownRemark(
+      postsMdx: allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 2000
       ) {
@@ -52,7 +52,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  const posts = result.data.postsRemark.edges
+  const posts = result.data.postsMdx.edges
   // Create post detail pages
   posts.forEach(({ node }) => {
     createPage({
